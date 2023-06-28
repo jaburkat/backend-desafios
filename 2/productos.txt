@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Producto1 Update",
+    "description": "Descripcion 1 Update",
+    "price": 600,
+    "thumbnail": "imagen1 Update",
+    "code": "pro1Update",
+    "stock": 200,
+    "id": 1
+  },
+  {
+    "title": "Producto2",
+    "description": "Descripcion 2",
+    "price": 1500,
+    "thumbnail": "imagen2",
+    "code": "pro2",
+    "stock": 150,
+    "id": 2
+  },
+  {
+    "title": "Producto3",
+    "description": "Descripcion 3",
+    "price": 2000,
+    "thumbnail": "imagen3",
+    "code": "pro3",
+    "stock": 200,
+    "id": 3
+  }
+]

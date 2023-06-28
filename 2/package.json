@@ -1,0 +1,13 @@
+{
+  "name": "backend-43385",
+  "version": "1.0.0",
+  "description": "Manejo de archivos",
+  "main": "entrega-2.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "jabk",
+  "license": "ISC"
+}
