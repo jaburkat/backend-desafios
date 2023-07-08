@@ -44,7 +44,7 @@ Cuerpo de la solicitud (body):
 }
 ```
 
-#### PUT: Editar un producto (Un item a la vez).
+#### Editar un producto (Un item a la vez).
 - Método: PUT
 - URL: `localhost:8080/api/products/21`
 
