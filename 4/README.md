@@ -6,7 +6,7 @@
 npm start
 ```
 
-### ENDPOINTS POSTMAN TEST
+## ENDPOINTS POSTMAN TEST
 
 ---
 
