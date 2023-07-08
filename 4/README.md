@@ -57,7 +57,7 @@ Cuerpo de la solicitud (body):
 
 #### Eliminar producto por su ID.
 - Método: DELETE
-- URL: `localhost:8080/api/products/20`
+- URL: `localhost:8080/api/products/21`
 
 ---
 
