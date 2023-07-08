@@ -8,7 +8,6 @@ npm start
 
 ## ENDPOINTS POSTMAN TEST
 
----
 
 ### ENDPOINTS PRODUCTOS
 
