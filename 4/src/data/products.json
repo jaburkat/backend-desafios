@@ -178,15 +178,5 @@
     "code": "13579-864",
     "stock": 15,
     "id": 20
-  },
-  {
-    "title": "Producto Prueba",
-    "description": "Esto es una prueba",
-    "price": 656,
-    "status": true,
-    "thumbnail": "https://example.com/test.png",
-    "code": "11111-111",
-    "stock": 666,
-    "id": 21
   }
 ]
