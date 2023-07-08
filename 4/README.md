@@ -32,26 +32,22 @@ Cuerpo de la solicitud (body):
 
 #### Mostrar todos los productos.
 - Método: POST
-- URL: `http
-localhost:8080/api/products`
+- URL: `localhost:8080/api/products`
 
 
 #### Mostrar producto por ID.
 - Método: GET
-- URL: `http
-localhost:8080/api/products/2`
+- URL: `localhost:8080/api/products/2`
 
 
 #### Mostrar cierta cantidad de productos.
 - Método: GET
-- URL: `http
-localhost:8080/api/products?limit=6`
+- URL: `localhost:8080/api/products?limit=6`
 
 
 #### PUT: Editar un producto (Un item a la vez).
 - Método: PUT
-- URL: `http
-localhost:8080/api/products/21`
+- URL: `localhost:8080/api/products/21`
 
 Cuerpo de la solicitud (body):
 ```json
@@ -62,8 +58,7 @@ Cuerpo de la solicitud (body):
 
 #### Eliminar producto por su ID.
 - Método: DELETE
-- URL: `http
-localhost:8080/api/products/20`
+- URL: `localhost:8080/api/products/20`
 
 ---
 
@@ -71,15 +66,12 @@ localhost:8080/api/products/20`
 
 #### Crear carrito (ID Autogenerado).
 - Método: POST
-- URL: `http
-localhost:8080/api/carts`
+- URL: `localhost:8080/api/carts`
 
 #### Mostrar productos de un carrito.
 - Método: GET
-- URL: `http
-localhost:8080/api/carts/1`
+- URL: `localhost:8080/api/carts/1`
 
 #### Agregar productos al carrito.
 - Método: POST
-- URL: `http
-localhost:8080/api/carts/2/products/5`
+- URL: `localhost:8080/api/carts/2/products/5`
