@@ -11,6 +11,20 @@ npm start
 
 ### ENDPOINTS PRODUCTOS
 
+#### Mostrar todos los productos.
+- Método: POST
+- URL: `localhost:8080/api/products`
+
+
+#### Mostrar producto por ID.
+- Método: GET
+- URL: `localhost:8080/api/products/2`
+
+
+#### Mostrar cierta cantidad de productos.
+- Método: GET
+- URL: `localhost:8080/api/products?limit=6`
+
 #### Agregar producto.
 
 - Método: POST
@@ -29,21 +43,6 @@ Cuerpo de la solicitud (body):
     "stock": 111
 }
 ```
-
-#### Mostrar todos los productos.
-- Método: POST
-- URL: `localhost:8080/api/products`
-
-
-#### Mostrar producto por ID.
-- Método: GET
-- URL: `localhost:8080/api/products/2`
-
-
-#### Mostrar cierta cantidad de productos.
-- Método: GET
-- URL: `localhost:8080/api/products?limit=6`
-
 
 #### PUT: Editar un producto (Un item a la vez).
 - Método: PUT
