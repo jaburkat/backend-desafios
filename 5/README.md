@@ -7,10 +7,6 @@ npm install
 ```
 
 ```shell
-npm start
-```
-
-```shell
 npm run dev
 ```
 
