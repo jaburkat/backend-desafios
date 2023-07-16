@@ -1,0 +1,67 @@
+[
+  {
+    "id": "pidc7fe",
+    "title": "Cremar Latex Blanco 4lt",
+    "description": "Látex acrilico blanco.",
+    "code": "010101",
+    "price": "4500",
+    "status": true,
+    "stock": "230",
+    "category": "Látex",
+    "thumbnails": [
+      "5d0a-cremar-latex-int-ext.webp"
+    ]
+  },
+  {
+    "id": "pid8bad",
+    "title": "Cremar Sintetico Negro 1lt",
+    "description": "Sintetico con convertidor, antioxido y esmalte.",
+    "code": "020202",
+    "price": "3600",
+    "status": true,
+    "stock": "150",
+    "category": "Sinteticos",
+    "thumbnails": [
+      "f0f6-cremar-sintetico.webp"
+    ]
+  },
+  {
+    "id": "pida9e1",
+    "title": "Espatula N5",
+    "description": "Espatula de acero inoxidable.",
+    "code": "030303",
+    "price": "1320",
+    "status": true,
+    "stock": "55",
+    "category": "Accesorios",
+    "thumbnails": [
+      "1e51-EspaÌtula-50mm-300x300.jpg"
+    ]
+  },
+  {
+    "id": "pid5b7d",
+    "title": "Pincel N10",
+    "description": "Pincel de cerda china. ",
+    "code": "040404",
+    "price": "720",
+    "status": true,
+    "stock": "67",
+    "category": "Accesorios",
+    "thumbnails": [
+      "418b-SERIE-304-600x600.webp"
+    ]
+  },
+  {
+    "id": "pid2a8b",
+    "title": "Foresta Impregnante 1lt",
+    "description": "Impregnante terminacion brillante.",
+    "code": "050505",
+    "price": "3800",
+    "status": true,
+    "stock": "89",
+    "category": "Impregnantes",
+    "thumbnails": [
+      "a98c-foresta-advance-protector-impregnante-maderas-20-lt-satinado-D_NQ_NP_788459-MLA31776173069_082019-F-600x600.webp"
+    ]
+  }
+]
