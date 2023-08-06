@@ -27,20 +27,16 @@
     ```
 ## Endpoints
 
-~~~
-localhost:<PORT>/ 
+
+**localhost:<PORT>/**  
 Ingresa al chat.
-~~~
 
-~~~
-localhost:<PORT>/home 
+**localhost:<PORT>/home**  
 Obtiene la lista estática de productos agregados hasta el momento.
-~~~
 
-~~~
-localhost:<PORT>/realtimeproducts 
+**localhost:<PORT>/realtimeproducts**  
 Obtiene la lista dinámica de productos con la implementación de Websocket. 
-~~~
+
 
 ## Postman Collections
 
