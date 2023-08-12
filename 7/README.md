@@ -28,10 +28,10 @@
     ```
 ## Endpoints
 
-**localhost:<PORT>/**
+**localhost:<PORT>/**  
 Incio.
 
-**localhost:<PORT>/products**
+**localhost:<PORT>/products**  
 Ingresa a la tienda virtual.
 
 **localhost:<PORT>/chat**  
