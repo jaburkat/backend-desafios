@@ -1,21 +1,25 @@
-// Importar el modelo de carrito 
+/* ************************************************************************** */
+/* /src/components/carts/cartsServices/cartsServices.js - servicio de los carritos. */
+/* ************************************************************************** */
+
+/* Importar el modelo de carrito */
 const { Cart } = require('../../../models/carts');
-// Importar el modelo de producto 
+/* Importar el modelo de producto */
 const { Product } = require('../../../models/products');
 
-// Definir la clase 'CartsService' 
+/* Definir la clase 'CartsService' */
 class CartsService {
   constructor() {
-    // Verificar y crear la colección de carritos si no existe 
+    /* Verificar y crear la colección de carritos si no existe */
     this.initializeCartCollection();
   }
 
-  // Inicializar la colección de carritos 
+  /* Inicializar la colección de carritos */
   initializeCartCollection = async () => {
     try {
-      // Contar la cantidad de documentos en la colección de carritos 
+      /* Contar la cantidad de documentos en la colección de carritos */
       const cartCount = await Cart.countDocuments();
-      // Si no hay carritos en la colección, crear uno nuevo 
+      /* Si no hay carritos en la colección, crear uno nuevo */
       if (cartCount === 0) {
         await Cart.create({ products: [] });
         console.log('Colección "carts" inicializada correctamente');
@@ -25,10 +29,10 @@ class CartsService {
     }
   };
 
-  // Agregar un carrito nuevo 
+  /* Agregar un carrito nuevo */
   addCart = async (res) => {
     try {
-      // Crear un nuevo carrito 
+      /* Crear un nuevo carrito */
       const newCart = await Cart.create({ products: [] });
       const data = newCart;
       return res.status(201).json({ success: true, message: 'Nuevo carrito creado', payload: data });
@@ -37,7 +41,7 @@ class CartsService {
     }
   };
 
-  // Obtener los productos de un carrito por su ID / 
+  /* Obtener los productos de un carrito por su ID / */
   getCartProductById = async (cid, res) => {
     try {
       const cart = await Cart.findById(cid).populate('products.productId');
@@ -51,24 +55,24 @@ class CartsService {
     }
   };
 
-  // Agregar un producto a un carrito 
+  /* Agregar un producto a un carrito */
   addProductToCart = async (cid, pid, quantity, res) => {
     try {
-      // Buscar el carrito por su ID 
+      /* Buscar el carrito por su ID */
       const cart = await Cart.findById(cid);
       if (!cart) {
         return res.status(404).json({ success: false, error: 'Carrito no encontrado' });
       }
 
-      // Buscar el producto por su ID 
+      /* Buscar el producto por su ID */
       const product = await Product.findById(pid);
       if (!product) {
         return res.status(404).json({ success: false, error: 'ID de Producto no encontrado' });
       }
 
-      // Buscar el índice del producto en el carrito 
+      /* Buscar el índice del producto en el carrito */
       const productIndex = cart.products.findIndex((p) => p.productId.toString() === pid);
-      // Si el producto no existe en el carrito, agregarlo con la cantidad proporcionada (o 1 por defecto) 
+      /* Si el producto no existe en el carrito, agregarlo con la cantidad proporcionada (o 1 por defecto) */
       if (productIndex === -1) {
         const newProduct = {
           productId: pid,
@@ -76,11 +80,11 @@ class CartsService {
         };
         cart.products.push(newProduct);
       } else {
-        // Si el producto ya existe en el carrito, aumentar su cantidad en la cantidad proporcionada (o 1 por defecto) 
+        /* Si el producto ya existe en el carrito, aumentar su cantidad en la cantidad proporcionada (o 1 por defecto) */
         cart.products[productIndex].quantity += quantity || 1;
       }
 
-      // Guardar los cambios realizados en el carrito 
+      /* Guardar los cambios realizados en el carrito */
       await cart.save();
       const data = cart;
       return res.status(200).json({ success: true, message: 'Producto agregado al carrito correctamente', payload: data });
@@ -89,15 +93,15 @@ class CartsService {
     }
   };
 
-  // Eliminar un carrito 
+  /* Eliminar un carrito */
   deleteCart = async (cid, res) => {
     try {
-      // Buscar el carrito por su ID 
+      /* Buscar el carrito por su ID */
       const cart = await Cart.findById(cid);
       if (!cart) {
         return res.status(404).json({ success: false, error: 'Carrito no encontrado' });
       }
-      // Eliminar el carrito 
+      /* Eliminar el carrito */
       await cart.deleteOne();
       const data = cart;
       return res.status(200).json({ success: true, message: 'Carrito eliminado correctamente', payload: data });
@@ -105,8 +109,8 @@ class CartsService {
       return res.status(500).json({ success: false, error: 'Error al eliminar el carrito' });
     }
   };
-  //   Nuevos métodos 
-  // Eliminar un producto del carrito 
+  /*   Nuevos métodos */
+  /* Eliminar un producto del carrito */
   deleteProductFromCart = async (cid, pid, res) => {
     try {
       const cart = await Cart.findById(cid);
@@ -128,7 +132,7 @@ class CartsService {
     }
   };
 
-  // Actualizar el carrito con un arreglo de productos 
+  /* Actualizar el carrito con un arreglo de productos */
   updateCart = async (cid, products, res) => {
     try {
       const cart = await Cart.findById(cid);
@@ -145,7 +149,7 @@ class CartsService {
     }
   };
 
-  // Actualizar la cantidad de ejemplares de un producto en el carrito 
+  /* Actualizar la cantidad de ejemplares de un producto en el carrito */
   updateProductQuantity = async (cid, pid, quantity, res) => {
     try {
       const cart = await Cart.findById(cid);
@@ -167,7 +171,7 @@ class CartsService {
     }
   };
 
-  // Eliminar todos los productos del carrito 
+  /* Eliminar todos los productos del carrito */
   deleteAllProductsFromCart = async (cid, res) => {
     try {
       const cart = await Cart.findByIdAndUpdate(cid, { $set: { products: [] } }, { new: true });
@@ -183,5 +187,5 @@ class CartsService {
   };
 }
 
-// Exportar una instancia de la clase 'CartsService' 
+/* Exportar una instancia de la clase 'CartsService' */
 module.exports = new CartsService();

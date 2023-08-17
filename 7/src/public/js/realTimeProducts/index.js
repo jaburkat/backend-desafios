@@ -1,7 +1,11 @@
-// Conecta el cliente a Socket.io 
+/* ************************************************************************** */
+/* /src/public/js/realTimeProducts/index.js - .js de /src/views/realTimeProducts.handlebars 
+/* ************************************************************************** */
+
+/* Conecta el cliente a Socket.io */
 const socket = io();
 
-// Función para agregar o actualizar una fila de producto en la tabla 
+/* Función para agregar o actualizar una fila de producto en la tabla */
 const addOrUpdateProductRow = (product) => {
   const productRow = `
     <tr id="${product._id}">
@@ -22,36 +26,36 @@ const addOrUpdateProductRow = (product) => {
   const existingRow = document.getElementById(product._id);
 
   if (existingRow) {
-    // Actualiza la fila de producto existente en la tabla 
+    /* Actualiza la fila de producto existente en la tabla */
     existingRow.innerHTML = productRow;
   } else {
-    // Agrega una nueva fila de producto a la tabla 
+    /* Agrega una nueva fila de producto a la tabla */
     productTable.insertAdjacentHTML('beforeend', productRow);
   }
 };
 
-// Función para eliminar una fila de producto de la tabla 
+/* Función para eliminar una fila de producto de la tabla */
 const deleteProductRow = (productId) => {
   const productRow = document.getElementById(productId);
   if (productRow) {
-    // Elimina la fila de producto de la tabla 
+    /* Elimina la fila de producto de la tabla */
     productRow.remove();
   }
 };
 
-// Escucha el evento 'newProduct' emitido por el servidor y llama a la función addOrUpdateProductRow 
+/* Escucha el evento 'newProduct' emitido por el servidor y llama a la función addOrUpdateProductRow */
 socket.on('newProduct', addOrUpdateProductRow);
 
-// Escucha el evento 'updateProduct' emitido por el servidor y llama a la función addOrUpdateProductRow 
+/* Escucha el evento 'updateProduct' emitido por el servidor y llama a la función addOrUpdateProductRow */
 socket.on('updateProduct', addOrUpdateProductRow);
 
-// Escucha el evento 'deleteProduct' emitido por el servidor y llama a la función deleteProductRow 
+/* Escucha el evento 'deleteProduct' emitido por el servidor y llama a la función deleteProductRow */
 socket.on('deleteProduct', deleteProductRow);
 
 document.addEventListener('DOMContentLoaded', () => {
   const productForm = document.getElementById('productForm');
 
-  // Maneja el evento submit del formulario para agregar un nuevo producto 
+  /* Maneja el evento submit del formulario para agregar un nuevo producto */
   productForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -63,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (response.ok) {
       const result = await response.json();
-      // Restablece los valores del formulario después de agregar el producto correctamente 
+      /* Restablece los valores del formulario después de agregar el producto correctamente */
       productForm.reset();
     } else {
       const error = await response.json();
@@ -72,14 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Función para eliminar un producto 
+/* Función para eliminar un producto */
 const deleteProduct = (id) => {
   fetch(`/api/products/${id}`, {
     method: 'DELETE',
   })
     .then((response) => {
       if (response.ok) {
-        // La eliminación se realizó correctamente, emite el evento 'deleteProduct' 
+        /* La eliminación se realizó correctamente, emite el evento 'deleteProduct' */
         socket.emit('deleteProduct', id);
       } else {
         console.error('Error al eliminar el producto');

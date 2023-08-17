@@ -1,11 +1,16 @@
-// Importar la conexión a la base de datos 
+/* ************************************************************************** */
+/* /src/components/handlebars/handlebarsServices/handlebarsServices.js -
+Servicios de handlebars */
+/* ************************************************************************** */
+
+/* Importar la conexión a la base de datos */
 const { connection } = require('../../../config/mongo');
-// Importar el servicio de products 
+/* Importar el servicio de products */
 const ProductsServices = require('../../products/productsServices/productsServices');
 const { Cart } = require('../../../models/carts');
-// Definir la clase HandlebarsServices 
+/* Definir la clase HandlebarsServices */
 class HandlebarsServices {
-  // Función auxiliar para obtener los datos de una colección 
+  /* Función auxiliar para obtener los datos de una colección */
   async getInicio(res) {
     try {
       return res.render('inicio', { success: true, title: 'Inicio', style: 'index.css' });
@@ -15,10 +20,10 @@ class HandlebarsServices {
   }
   async getCollectionData(collectionName, res) {
     try {
-      // Obtener la conexión a la base de datos 
+      /* Obtener la conexión a la base de datos */
       const database = connection;
       const collection = database.collection(collectionName);
-      // Obtener los datos de la colección 
+      /* Obtener los datos de la colección */
       const data = await collection.find().toArray();
       return data;
     } catch (error) {
@@ -26,10 +31,10 @@ class HandlebarsServices {
     }
   }
 
-  // Función para obtener la página de inicio 
+  /* Función para obtener la página de inicio */
   async getHome(res) {
     try {
-      // Obtener los productos de la colección 'products' 
+      /* Obtener los productos de la colección 'products' */
       const products = await this.getCollectionData('products');
       return res.render('home', { success: true, title: 'Home', products, style: 'index.css' });
     } catch (error) {
@@ -37,10 +42,10 @@ class HandlebarsServices {
     }
   }
 
-  // Función para obtener los productos en tiempo real 
+  /* Función para obtener los productos en tiempo real */
   async getRealTimeProducts(res) {
     try {
-      // Obtener los products de la colección 'productos' 
+      /* Obtener los products de la colección 'productos' */
       const products = await this.getCollectionData('products');
       return res.render('realTimeProducts', { success: true, title: 'Real Time Products', products, style: 'index.css' });
     } catch (error) {
@@ -56,8 +61,8 @@ class HandlebarsServices {
     }
   }
 
-  // Nuevo método 
-  // Función para obtener los productos y mostrarlos en /src/views/products.handlebars  
+  /* Nuevo método */
+  /* Función para obtener los productos y mostrarlos en /src/views/products.handlebars  */
   async getProducts(limit, page, sort, query, res) {
     try {
       const products = await ProductsServices.getProducts(limit, page, sort, query, res);
@@ -84,10 +89,10 @@ class HandlebarsServices {
 
   async getCartProductById(cid, res) {
     try {
-      // Obtener el carrito por su ID y hacer populate en 'products.productId' 
+      /* Obtener el carrito por su ID y hacer populate en 'products.productId' */
       const cart = await Cart.findById(cid).populate('products.productId', '-__v');
 
-      // Formatear el carrito para incluir solo las propiedades necesarias 
+      /* Formatear el carrito para incluir solo las propiedades necesarias */
       const formattedCart = {
         _id: cart._id,
         products: cart.products.map((item) => ({
@@ -119,5 +124,5 @@ class HandlebarsServices {
   }
 }
 
-// Exportar una instancia de la clase HandlebarsServices 
+/* Exportar una instancia de la clase HandlebarsServices */
 module.exports = new HandlebarsServices();

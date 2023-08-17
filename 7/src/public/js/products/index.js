@@ -1,3 +1,7 @@
+/* ************************************************************************** */
+/* /src/public/js/products/index.js - .js de /src/views/products.handlebars */
+/* ************************************************************************** */
+
 // Función para obtener el ID del carrito del almacenamiento local
 const getCartId = () => localStorage.getItem('cartId');
 

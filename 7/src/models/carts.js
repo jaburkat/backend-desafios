@@ -1,8 +1,8 @@
-// /src/models/carts.js - Mongoose-definición de un esquema de carrito y creación de un modelo correspondiente 
+/* /src/models/carts.js - Mongoose-definición de un esquema de carrito y creación de un modelo correspondiente */
 const { Schema, model } = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-// Definir el esquema de carrito 
+/* Definir el esquema de carrito */
 const cartSchema = new Schema(
   {
     products: [
@@ -22,13 +22,13 @@ const cartSchema = new Schema(
   { collection: 'carts' }
 );
 
-// Aplicar la paginación al modelo de carrito 
+/* Aplicar la paginación al modelo de carrito */
 cartSchema.plugin(mongoosePaginate);
 
-// Crear el modelo de carrito 
+/* Crear el modelo de carrito */
 const Cart = model('Cart', cartSchema);
 
-// Exportar el modelo 
+/* Exportar el modelo */
 module.exports = {
   Cart,
 };

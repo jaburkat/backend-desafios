@@ -1,18 +1,24 @@
-// Importar módulos y dependencias necesarias 
+/* ************************************************************************** */
+/* /src/dao/models/CarttManager_fileSystem.js */
+/* ************************************************************************** */
+/* Manager de carritos con persistencia de datos en fileSystem */
+/* ************************************************************************** */
+
+/* Importar módulos y dependencias necesarias */
 const express = require('express');
 const fs = require('fs').promises;
 const { v4: uuidv4 } = require('uuid');
 
-// Crear un nuevo router de Express 
+/* Crear un nuevo router de Express */
 const router = express.Router();
 
-// Ruta del archivo JSON para respaldar los carritos 
+/* Ruta del archivo JSON para respaldar los carritos */
 const cartsFilePath = './data/carrito.json';
 
-// Ruta del archivo JSON para respaldar los productos 
+/* Ruta del archivo JSON para respaldar los productos */
 const productsFilePath = './data/productos.json';
 
-// Función para generar un ID único para los carritos con el prefijo "cid" 
+/* Función para generar un ID único para los carritos con el prefijo "cid" */
 function generateCartId(carts) {
   let id;
   const existingIds = carts.map((cart) => cart.id);
@@ -24,7 +30,7 @@ function generateCartId(carts) {
   return id;
 }
 
-// Verificar y crear el archivo "carrito.json" si no existe o está vacío 
+/* Verificar y crear el archivo "carrito.json" si no existe o está vacío */
 (async () => {
   try {
     await fs.access(cartsFilePath);
@@ -39,47 +45,47 @@ function generateCartId(carts) {
 })();
 
 ////////////////////////////////////////////////////////////////////////////////
-// ************************************************************************** 
-// POST / 
-// ************************************************************************** 
+/* ************************************************************************** */
+/* POST / */
+/* ************************************************************************** */
 // Crea un nuevo carrito con un ID único
-// ************************************************************************** 
+/* ************************************************************************** */
 
 router.post('/', async (req, res) => {
   try {
-    // Leer el archivo JSON de carritos 
+    /* Leer el archivo JSON de carritos */
     const cartsData = await fs.readFile(cartsFilePath, 'utf8');
     const carts = JSON.parse(cartsData);
 
-    // Generar un nuevo ID único para el carrito 
+    /* Generar un nuevo ID único para el carrito */
     const newCartId = generateCartId(carts);
 
-    // Crear el nuevo carrito con el ID generado y un array vacío de productos 
+    /* Crear el nuevo carrito con el ID generado y un array vacío de productos */
     const newCart = {
       id: newCartId,
       products: [],
     };
 
-    // Agregar el nuevo carrito al array de carritos 
+    /* Agregar el nuevo carrito al array de carritos */
     carts.push(newCart);
 
-    // Guardar los carritos actualizados en el archivo JSON 
+    /* Guardar los carritos actualizados en el archivo JSON */
     await fs.writeFile(cartsFilePath, JSON.stringify(carts, null, 2));
 
-    // Responder con el estado 201 (Creado) y enviar el nuevo carrito en la respuesta 
+    /* Responder con el estado 201 (Creado) y enviar el nuevo carrito en la respuesta */
     return res.status(201).json({ status: 'created', message: 'Nuevo carrito creado', cart: newCart });
   } catch (error) {
-    // Responder con el estado 500 (Error del servidor) en caso de error 
+    /* Responder con el estado 500 (Error del servidor) en caso de error */
     return res.status(500).json({ status: 'error', error: 'Error al crear el carrito' });
   }
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-// ************************************************************************** 
-// GET /:cid 
-// ************************************************************************** 
+/* ************************************************************************** */
+/* GET /:cid */
+/* ************************************************************************** */
 // Obtiene el carrito con el id indicado
-// ************************************************************************** 
+/* ************************************************************************** */
 
 router.get('/:cid', async (req, res) => {
   try {
@@ -106,11 +112,11 @@ router.get('/:cid', async (req, res) => {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-// ************************************************************************** 
-// POST / :cid/product/:pid 
-// ************************************************************************** 
+/* ************************************************************************** */
+/* POST / :cid/product/:pid */
+/* ************************************************************************** */
 // Agrega un producto al array "products" del carrito del id indicado".
-// ************************************************************************** 
+/* ************************************************************************** */
 
 router.post('/:cid/product/:pid', async (req, res) => {
   try {
@@ -177,11 +183,11 @@ router.post('/:cid/product/:pid', async (req, res) => {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-// ************************************************************************** 
-// DELETE / :cid/product/:pid 
-// ************************************************************************** 
+/* ************************************************************************** */
+/* DELETE / :cid/product/:pid */
+/* ************************************************************************** */
 // Elimina un producto del carrito del id indicado".
-// ************************************************************************** 
+/* ************************************************************************** */
 
 router.delete('/:cid/product/:pid', async (req, res) => {
   try {
@@ -224,11 +230,11 @@ router.delete('/:cid/product/:pid', async (req, res) => {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-// ************************************************************************** 
-// DELETE / :cid 
-// ************************************************************************** 
+/* ************************************************************************** */
+/* DELETE / :cid */
+/* ************************************************************************** */
 // Elimina el carrito del id indicado".
-// ************************************************************************** 
+/* ************************************************************************** */
 
 router.delete('/:cid', async (req, res) => {
   try {
