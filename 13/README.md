@@ -70,7 +70,7 @@ adminCod3r123
 
   3.1 - Loguearse como Admin o como User según corresponda para testear la ruta
 
-  3.2 - Una vez logueado ingresar a Application -> Cookies -> http://localhost:8080 y copiar el value del token jwt.
+  3.2 - Una vez logueado (Preferentemente con el usuario ADMIN) ingresar a Application -> Cookies -> http://localhost:8080 y copiar el value del token jwt.
 
   3.3 - En el Template de la cookie de Postman reemplazar Cookie_3 por jwt y value por el value del token copiado.
 
