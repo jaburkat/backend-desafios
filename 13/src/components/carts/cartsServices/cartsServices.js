@@ -407,9 +407,9 @@ class CartsServices {
 
       // Enviar el correo electrónico
       const emailPayload = {
-        from: 'lisandrojm@gmail.com', // Cambia esto a la dirección de tu correo
+        from: 'jabk.gamer@gmail.com', // Cambia esto a la dirección de tu correo
         to: username, // El destinatario es el usuario obtenido del token o la sesión
-        subject: 'FreeloECOM - Resultado de la compras',
+        subject: 'PONTOSHOP - Resultado de la compras',
         html: emailContent,
       };
 
