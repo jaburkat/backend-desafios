@@ -1,14 +1,26 @@
 # Tercera práctica integradora
 
 ## Reestablecimiento de contraseña
+https://github.com/jaburkat/backend-desafios/assets/96733176/7270b200-8bd7-4e8a-8460-631b26f14a88
+
+### (Link Expirado)
+https://github.com/jaburkat/backend-desafios/assets/96733176/ba833541-9793-4176-8f04-10a4ff5dae43
 
 ## Role Premium
+https://github.com/jaburkat/backend-desafios/assets/96733176/69ebe971-ed76-4799-bccf-4333f439deec
 
-## Schema de producto - Campo "owner"
+## Schema de producto - Campo  "owner"
+https://github.com/jaburkat/backend-desafios/assets/96733176/ad57eda9-5a90-4910-9b8a-651a340fd38f
 
 ## Asignación de permisos para el role "premium"
+https://github.com/jaburkat/backend-desafios/assets/96733176/3a433779-5f0e-49bc-80b3-6f7041517dc2
+
+https://github.com/jaburkat/backend-desafios/assets/96733176/5b1c2295-90bf-4de5-96c3-cd81de8e3ade
 
 ## Implementación de la ruta "/api/users/premium/:uid"
+https://github.com/jaburkat/backend-desafios/assets/96733176/d5d430ff-3745-4302-a209-39a442c1fce3
+
+
 
 ## Start
 
