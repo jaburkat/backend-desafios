@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "48d6a554-fe3b-40f4-9065-fede91a922b5",
+		"name": "cookies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28410863"
+	},
+	"item": [
+		{
+			"name": "setSignedCookies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/session/setsignedcookies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"session",
+						"setsignedcookies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSignedCookies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/session/getsignedcookies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"session",
+						"getsignedcookies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSignedCookies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/session/deletesignedcookies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"session",
+						"deletesignedcookies"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
